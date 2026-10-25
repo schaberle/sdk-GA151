@@ -20,7 +20,7 @@ No PowerShell, na pasta deste repositório:
 powershell -NoProfile -ExecutionPolicy Bypass -File .\build.ps1
 ```
 
-O compilador é o `csc.exe` do .NET Framework 4, com `/platform:x86`. A saída fica em `bin\`: `Leitor.dll`, `Capturar.exe` e as quatro DLLs.
+O compilador é o `csc.exe` do .NET Framework 4, com `/platform:x86`. A saída fica em `bin\`: `Leitor.dll`, `Capturar.exe`, `Teste.exe` e as quatro DLLs.
 
 ## Capturar uma imagem
 
@@ -33,6 +33,10 @@ Feche qualquer outro programa que esteja usando o sensor. Na pasta `bin`:
 ```
 
 Sem argumento, grava `captura.raw` na pasta atual. Apoie o dedo no sensor. O programa espera até 60 segundos. `--verificar` só testa a regra de imagem pronta, sem abrir o USB.
+
+## Teste na tela
+
+`bin\Teste.exe` abre a janela de leitura e validação. Grave a referência, retire o dedo e valide o mesmo dedo. A referência fica só na memória e some ao fechar a janela. Feche outro programa que esteja usando o sensor antes de abrir.
 
 ## Uso no código
 

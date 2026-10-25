@@ -6,6 +6,8 @@ $csc = Join-Path $env:WINDIR 'Microsoft.NET\Framework\v4.0.30319\csc.exe'
 if ($LASTEXITCODE -ne 0) { throw 'Falha ao compilar Leitor.dll' }
 & $csc /nologo /target:exe /platform:x86 /optimize+ "/reference:$saida\Leitor.dll" "/out:$saida\Capturar.exe" (Join-Path $PSScriptRoot 'Capturar.cs')
 if ($LASTEXITCODE -ne 0) { throw 'Falha ao compilar Capturar.exe' }
+& $csc /nologo /target:winexe /platform:x86 /codepage:65001 /optimize+ "/out:$saida\Teste.exe" (Join-Path $PSScriptRoot 'Teste.cs')
+if ($LASTEXITCODE -ne 0) { throw 'Falha ao compilar Teste.exe' }
 foreach ($nome in @('fpengine.dll', 'fpcore32.dll', 'fpspeed32.dll', 'nbis32.dll')) {
     Copy-Item -LiteralPath (Join-Path $PSScriptRoot "dlls\$nome") -Destination $saida
 }
